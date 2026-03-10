@@ -1,3 +1,10 @@
+## v0.4.3-dev
+
+- scanner cooldown toegevoegd
+- scan lock voorkomt dubbele scans
+- scanbox visuele status (ready / locked)
+- stabielere scanner flow voor iOS
+
 ## v0.4.2-dev
 
 - debug console toegevoegd

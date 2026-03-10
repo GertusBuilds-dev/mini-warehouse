@@ -34,8 +34,8 @@ execSync("git add .", { stdio: "inherit" });
 // commit met versie
 execSync(`git commit -m "release ${version}"`, { stdio: "inherit" });
 
-// // tag maken
-// execSync(`git tag ${version}`, { stdio: "inherit" });
+// tag maken
+execSync(`git tag ${version}`, { stdio: "inherit" });
 
 // push code
 execSync("git push", { stdio: "inherit" });

@@ -1,5 +1,4 @@
 let lastScan = "";
-let scanLocked = false;
 
 const warehouse = {
   products: [],
@@ -9,6 +8,9 @@ const warehouse = {
 
 let currentProduct = null;
 let currentLocation = null;
+
+let scannerActive = true;
+let scanCooldown = 1500;
 
 function log(msg) {
   const debug = document.getElementById("debug");
@@ -23,9 +25,14 @@ function startScan() {
 
   const video = document.getElementById("video");
 
+  log("Scanner started");
+
   codeReader.decodeFromVideoDevice(null, video, (result, err) => {
-    if (result && !scanLocked) {
-      scanLocked = true;
+    if (result && scannerActive) {
+      scannerActive = false;
+
+      const scanBox = document.querySelector(".scan-box");
+      scanBox.style.borderColor = "red";
 
       lastScan = result.text;
 
@@ -34,10 +41,27 @@ function startScan() {
       handleScan(lastScan);
 
       setTimeout(() => {
-        scanLocked = false;
-      }, 1500);
+        scannerActive = true;
+        scanBox.style.borderColor = "lime";
+
+        log("Scanner ready");
+      }, scanCooldown);
     }
   });
+}
+
+function handleScan(code) {
+  document.getElementById("result").innerText = code;
+
+  if (code.startsWith("PRD")) {
+    currentProduct = code;
+
+    log("PRODUCT: " + code);
+  } else if (code.startsWith("LOC")) {
+    currentLocation = code;
+
+    log("LOCATION: " + code);
+  }
 }
 
 function saveScan() {
@@ -64,33 +88,4 @@ function saveScan() {
 
   currentProduct = null;
   currentLocation = null;
-}
-
-function handleScan(code) {
-  document.getElementById("result").innerText = code;
-
-  if (code.startsWith("PRD")) {
-    currentProduct = code;
-
-    log("PRODUCT: " + code);
-  } else if (code.startsWith("LOC")) {
-    currentLocation = code;
-
-    log("LOCATION: " + code);
-  }
-}
-
-function showReleaseNotes() {
-  const box = document.getElementById("releaseNotes");
-
-  if (box.style.display === "none") {
-    fetch("RELEASE.md")
-      .then((r) => r.text())
-      .then((text) => {
-        box.innerText = text;
-        box.style.display = "block";
-      });
-  } else {
-    box.style.display = "none";
-  }
 }

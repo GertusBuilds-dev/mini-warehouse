@@ -1,11 +1,11 @@
 Mini Warehouse Scanner
-Build v0.4.2-dev
+Build v0.4.3-dev
 
 Changes
 
-- debug console toegevoegd
-- alerts verwijderd
-- scanner stabiliteit verbeterd
+- scanner cooldown toegevoegd
+- dubbele scans voorkomen
+- scanbox kleur verandert tijdens scan
 
 Notes
-Development build for iOS testing.
+Scanner is nu stabieler voor gebruik met fysieke barcodes.
