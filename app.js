@@ -15,6 +15,10 @@ let scanCooldown = 1500;
 let paused = false;
 let pendingScan = null;
 
+window.onerror = function (err) {
+  log("JS ERROR: " + err);
+};
+
 function log(msg) {
   const debug = document.getElementById("debug");
 
@@ -123,4 +127,27 @@ function saveScan() {
 
   currentProduct = null;
   currentLocation = null;
+}
+
+function showReleaseNotes() {
+  const box = document.getElementById("releaseNotes");
+
+  if (!box) {
+    log("releaseNotes container not found");
+    return;
+  }
+
+  if (box.style.display === "none" || box.style.display === "") {
+    fetch("RELEASE.md")
+      .then((r) => r.text())
+      .then((text) => {
+        box.innerText = text;
+        box.style.display = "block";
+
+        log("Release notes loaded");
+      });
+  } else {
+    box.style.display = "none";
+    log("Release notes hidden");
+  }
 }

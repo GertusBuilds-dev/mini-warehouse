@@ -1,3 +1,8 @@
+## v0.4.5-dev
+
+- fix: showReleaseNotes functie ontbrak
+- release notes viewer werkt weer
+
 ## v0.4.4-dev
 
 - pause / resume scanner button toegevoegd
