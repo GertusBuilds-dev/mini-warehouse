@@ -13,7 +13,7 @@
 
   <body>
     <h2>Mini Warehouse Scanner</h2>
-
+    <div id="version"></div>
     <p>Last Scan:</p>
     <h3 id="result">none</h3>
 
@@ -41,7 +41,21 @@
     </div>
 
     <div id="debug">Debug console</div>
+    <button onclick="showReleaseNotes()">Release Notes</button>
 
-    <script src="app.js"></script>
+    <div
+      id="releaseNotes"
+      style="
+        display: none;
+        background: #222;
+        color: #0f0;
+        padding: 10px;
+        margin-top: 10px;
+        max-height: 200px;
+        overflow: auto;
+        font-family: monospace;
+      "
+    ></div>
+    <script src="version.js"></script>
   </body>
 </html>

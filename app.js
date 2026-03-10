@@ -79,3 +79,18 @@ function handleScan(code) {
     log("LOCATION: " + code);
   }
 }
+
+function showReleaseNotes() {
+  const box = document.getElementById("releaseNotes");
+
+  if (box.style.display === "none") {
+    fetch("RELEASE.md")
+      .then((r) => r.text())
+      .then((text) => {
+        box.innerText = text;
+        box.style.display = "block";
+      });
+  } else {
+    box.style.display = "none";
+  }
+}
