@@ -1,9 +1,9 @@
 ## v0.4.2-dev
 
 - debug console toegevoegd
-- alerts verwijderd
-- scan lock toegevoegd
-- versiebeheer via VERSION.md
+- scan lock verbeterd
+- scanner overlay gefixt
+- release notes viewer toegevoegd
 
 ## v0.4.1-dev
 

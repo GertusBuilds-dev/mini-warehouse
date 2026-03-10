@@ -1,7 +1,11 @@
-v0.4.0
+Mini Warehouse Scanner
+Build v0.4.2-dev
 
-- barcode scanning via ZXing
-- scan window overlay
-- scan lock tegen dubbele scans
-- warehouse transaction model
-- debug console voor iOS
+Changes
+
+- debug console toegevoegd
+- alerts verwijderd
+- scanner stabiliteit verbeterd
+
+Notes
+Development build for iOS testing.
