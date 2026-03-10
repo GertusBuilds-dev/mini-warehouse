@@ -1,3 +1,5 @@
+CONFIG.API_URL;
+
 let lastScan = "";
 
 const warehouse = {
@@ -10,7 +12,7 @@ let currentProduct = null;
 let currentLocation = null;
 
 let scannerActive = true;
-let scanCooldown = 1500;
+let scanCooldown = CONFIG.SCAN_COOLDOWN;
 
 let paused = false;
 let pendingScan = null;
@@ -20,6 +22,8 @@ window.onerror = function (err) {
 };
 
 function log(msg) {
+  if (!CONFIG.DEBUG) return;
+
   const debug = document.getElementById("debug");
 
   debug.innerHTML += "<br>" + msg;
@@ -132,7 +136,17 @@ function saveScan() {
   };
 
   warehouse.transactions.push(transaction);
-
+  fetch(CONFIG.API_URL + "/scan", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(transaction),
+  })
+    .then((r) => r.json())
+    .then((data) => {
+      log("Saved to backend");
+    });
   log("TRANSACTION SAVED");
 
   console.log(warehouse.transactions);

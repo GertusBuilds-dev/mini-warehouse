@@ -1,14 +1,11 @@
 Mini Warehouse Scanner
-Build v0.4.8-dev
+Build v0.5.5-dev
 
 New
 
-- Export Excel knop toegevoegd
-- gescande transacties kunnen nu naar een Excel bestand worden geëxporteerd
+- scanner instellingen via config.js
 
 Changes
 
-- transacties worden omgezet naar een Excel tabel
-
-Notes
-This build tests the connection between the barcode scanner and an Excel-based database workflow.
+- debug logging kan aan/uit gezet worden
+- scan cooldown configureerbaar

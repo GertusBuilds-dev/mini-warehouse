@@ -1,4 +1,4 @@
-let APP_VERSION = "v0.5.5-dev"
+let APP_VERSION = "v0.4.8-dev"
 
 fetch("VERSION.md")
 .then(r=>r.text())

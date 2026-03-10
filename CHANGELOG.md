@@ -1,3 +1,28 @@
+## v0.5.5-dev
+
+- DEBUG configuratie toegevoegd
+- SCAN_COOLDOWN verplaatst naar config.js
+- scanner instellingen centraal configureerbaar
+
+## v0.5.4-dev
+
+- config.js toegevoegd voor frontend configuratie
+- API_URL verplaatst uit app.js naar config.js
+- frontend configuratie losgekoppeld van scanner logica
+- voorbereiding voor meerdere configuraties (localhost / ngrok / production)
+
+## v0.5.3-dev
+
+- frontend projectstructuur bevestigd
+- API endpoint configuratie voorbereid
+- backend communicatie voorbereid voor gescheiden frontend/backend architectuur
+
+## v0.5.2-dev
+
+- projectstructuur opgesplitst in frontend en backend folders
+- backend API communicatie gecontroleerd
+- CORS ondersteuning voorbereid voor cross-origin requests
+
 ## v0.4.8-dev
 
 - Excel export functie toegevoegd
