@@ -1,4 +1,5 @@
 let lastScan = "";
+let scanLocked = false;
 
 const warehouse = {
   products: [],
@@ -14,12 +15,16 @@ function startScan() {
   const video = document.getElementById("video");
 
   codeReader.decodeFromVideoDevice(null, video, (result, err) => {
-    if (result) {
+    if (result && !scanLocked) {
+      scanLocked = true;
+
       lastScan = result.text;
 
       handleScan(lastScan);
 
-      codeReader.reset();
+      setTimeout(() => {
+        scanLocked = false;
+      }, 1500);
     }
   });
 }
