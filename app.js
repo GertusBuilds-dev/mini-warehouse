@@ -1,5 +1,14 @@
 let lastScan = "";
 
+const warehouse = {
+  products: [],
+  locations: [],
+  transactions: [],
+};
+
+let currentProduct = null;
+let currentLocation = null;
+
 function startScan() {
   const codeReader = new ZXing.BrowserBarcodeReader();
   const video = document.getElementById("video");
@@ -8,7 +17,7 @@ function startScan() {
     if (result) {
       lastScan = result.text;
 
-      document.getElementById("result").innerText = lastScan;
+      handleScan(lastScan);
 
       codeReader.reset();
     }
@@ -16,7 +25,40 @@ function startScan() {
 }
 
 function saveScan() {
-  console.log("Saved scan:", lastScan);
+  const qty = document.getElementById("qty").value;
 
-  alert("Saved: " + lastScan);
+  if (!currentProduct || !currentLocation) {
+    alert("Scan product AND location first");
+    return;
+  }
+
+  const transaction = {
+    product: currentProduct,
+    location: currentLocation,
+    quantity: qty,
+    time: new Date().toISOString(),
+  };
+
+  warehouse.transactions.push(transaction);
+
+  console.log("Transactions:", warehouse.transactions);
+
+  alert("Transaction saved");
+
+  currentProduct = null;
+  currentLocation = null;
+}
+
+function handleScan(code) {
+  document.getElementById("result").innerText = code;
+
+  if (code.startsWith("PRD")) {
+    currentProduct = code;
+    alert("Product scanned: " + code);
+  }
+
+  if (code.startsWith("LOC")) {
+    currentLocation = code;
+    alert("Location scanned: " + code);
+  }
 }
