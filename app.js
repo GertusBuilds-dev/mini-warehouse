@@ -80,14 +80,24 @@ function confirmScan() {
 function toggleScanner() {
   paused = !paused;
 
+  const button = document.getElementById("pauseButton");
+
+  const scanBox = document.querySelector(".scan-box");
+
   if (paused) {
     log("Scanner paused");
 
-    document.querySelector(".scan-box").style.borderColor = "orange";
+    scanBox.style.borderColor = "orange";
+
+    button.classList.add("paused");
+    button.innerText = "▶ Resume Scanner";
   } else {
     log("Scanner resumed");
 
-    document.querySelector(".scan-box").style.borderColor = "lime";
+    scanBox.style.borderColor = "lime";
+
+    button.classList.remove("paused");
+    button.innerText = "⏸ Pause Scanner";
   }
 }
 

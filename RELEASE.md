@@ -1,12 +1,15 @@
 Mini Warehouse Scanner
-Build v0.4.4-dev
+Build v0.4.6-dev
+
+New
+
+- Pause / Resume scanner knop toegevoegd
+- knop licht op wanneer scanner gepauzeerd is
 
 Changes
 
-- pause / resume scanner button toegevoegd
-- auto scan en manual scan mode
-- confirm scan knop voor manual mode
-- scanner UX verbeterd voor dicht op elkaar staande barcodes
+- scanbox kleurt oranje wanneer scanner paused is
+- knop wisselt automatisch tussen ⏸ Pause Scanner en ▶ Resume Scanner
 
 Notes
-Scanner is nu stabieler voor gebruik met fysieke barcodes.
+Development build for testing scanner behaviour and user interaction.

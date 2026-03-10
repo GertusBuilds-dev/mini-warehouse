@@ -1,3 +1,10 @@
+## v0.4.6-dev
+
+- pause scanner knop verbeterd
+- knop verandert nu naar Resume Scanner
+- visuele indicator wanneer scanner gepauzeerd is
+- scanbox kleurt oranje bij pauze
+
 ## v0.4.5-dev
 
 - fix: showReleaseNotes functie ontbrak
