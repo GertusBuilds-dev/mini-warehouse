@@ -1,15 +1,14 @@
 Mini Warehouse Scanner
-Build v0.4.6-dev
+Build v0.4.7-dev
 
-New
+Fixes
 
-- Pause / Resume scanner knop toegevoegd
-- knop licht op wanneer scanner gepauzeerd is
+- Pause / Resume button styling werkt nu correct op iOS Safari
 
 Changes
 
-- scanbox kleurt oranje wanneer scanner paused is
-- knop wisselt automatisch tussen ⏸ Pause Scanner en ▶ Resume Scanner
+- button styling verbeterd voor mobile browsers
+- paused state visueel duidelijker gemaakt
 
 Notes
-Development build for testing scanner behaviour and user interaction.
+Development build for cross-device testing (Desktop + iOS Safari).

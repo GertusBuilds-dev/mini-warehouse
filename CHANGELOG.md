@@ -1,3 +1,10 @@
+## v0.4.7-dev
+
+- fix: pause button styling werkt nu correct op iOS Safari
+- verbeterde button styling (webkit appearance fix)
+- duidelijkere paused state voor scanner knop
+- kleine UI redraw fix voor Safari
+
 ## v0.4.6-dev
 
 - pause scanner knop verbeterd

@@ -81,7 +81,6 @@ function toggleScanner() {
   paused = !paused;
 
   const button = document.getElementById("pauseButton");
-
   const scanBox = document.querySelector(".scan-box");
 
   if (paused) {
@@ -90,15 +89,18 @@ function toggleScanner() {
     scanBox.style.borderColor = "orange";
 
     button.classList.add("paused");
-    button.innerText = "▶ Resume Scanner";
+    button.textContent = "▶ Resume Scanner";
   } else {
     log("Scanner resumed");
 
     scanBox.style.borderColor = "lime";
 
     button.classList.remove("paused");
-    button.innerText = "⏸ Pause Scanner";
+    button.textContent = "⏸ Pause Scanner";
   }
+
+  /* force redraw for iOS */
+  button.offsetHeight;
 }
 
 function handleScan(code) {
