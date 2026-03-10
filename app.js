@@ -163,3 +163,27 @@ function showReleaseNotes() {
     log("Release notes hidden");
   }
 }
+
+function exportExcel() {
+  if (warehouse.transactions.length === 0) {
+    log("No data to export");
+    return;
+  }
+
+  const data = warehouse.transactions.map((t) => ({
+    Product: t.product,
+    Location: t.location,
+    Quantity: t.quantity,
+    Time: t.time,
+  }));
+
+  const worksheet = XLSX.utils.json_to_sheet(data);
+
+  const workbook = XLSX.utils.book_new();
+
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Scans");
+
+  XLSX.writeFile(workbook, "warehouse_scans.xlsx");
+
+  log("Excel file exported");
+}

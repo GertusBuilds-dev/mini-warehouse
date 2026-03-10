@@ -1,9 +1,15 @@
+## v0.4.8-dev
+
+- Excel export functie toegevoegd
+- scanner transacties kunnen nu als .xlsx bestand worden gedownload
+- eerste test van scanner → Excel workflow
+
 ## v0.4.7-dev
 
-- fix: pause button styling werkt nu correct op iOS Safari
-- verbeterde button styling (webkit appearance fix)
-- duidelijkere paused state voor scanner knop
-- kleine UI redraw fix voor Safari
+- pause/resume knop verbeterd
+- icoon wisselt tussen ⏸ en ▶
+- betere feedback voor scanner status
+- iOS Safari compatibiliteit verbeterd
 
 ## v0.4.6-dev
 

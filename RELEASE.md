@@ -1,14 +1,14 @@
 Mini Warehouse Scanner
-Build v0.4.7-dev
+Build v0.4.8-dev
 
-Fixes
+New
 
-- Pause / Resume button styling werkt nu correct op iOS Safari
+- Export Excel knop toegevoegd
+- gescande transacties kunnen nu naar een Excel bestand worden geëxporteerd
 
 Changes
 
-- button styling verbeterd voor mobile browsers
-- paused state visueel duidelijker gemaakt
+- transacties worden omgezet naar een Excel tabel
 
 Notes
-Development build for cross-device testing (Desktop + iOS Safari).
+This build tests the connection between the barcode scanner and an Excel-based database workflow.
