@@ -10,8 +10,17 @@ const warehouse = {
 let currentProduct = null;
 let currentLocation = null;
 
+function log(msg) {
+  const debug = document.getElementById("debug");
+
+  debug.innerHTML += "<br>" + msg;
+
+  debug.scrollTop = debug.scrollHeight;
+}
+
 function startScan() {
   const codeReader = new ZXing.BrowserBarcodeReader();
+
   const video = document.getElementById("video");
 
   codeReader.decodeFromVideoDevice(null, video, (result, err) => {
@@ -19,6 +28,8 @@ function startScan() {
       scanLocked = true;
 
       lastScan = result.text;
+
+      log("SCAN: " + lastScan);
 
       handleScan(lastScan);
 
@@ -33,7 +44,8 @@ function saveScan() {
   const qty = document.getElementById("qty").value;
 
   if (!currentProduct || !currentLocation) {
-    alert("Scan product AND location first");
+    log("ERROR: scan product and location first");
+
     return;
   }
 
@@ -46,9 +58,9 @@ function saveScan() {
 
   warehouse.transactions.push(transaction);
 
-  console.log("Transactions:", warehouse.transactions);
-  log("Saved scan: " + lastScan);
-  //   alert("Transaction saved");
+  log("TRANSACTION SAVED");
+
+  console.log(warehouse.transactions);
 
   currentProduct = null;
   currentLocation = null;
@@ -59,19 +71,11 @@ function handleScan(code) {
 
   if (code.startsWith("PRD")) {
     currentProduct = code;
-    alert("Product scanned: " + code);
-  }
 
-  if (code.startsWith("LOC")) {
+    log("PRODUCT: " + code);
+  } else if (code.startsWith("LOC")) {
     currentLocation = code;
-    alert("Location scanned: " + code);
+
+    log("LOCATION: " + code);
   }
-}
-
-function log(msg) {
-  const debug = document.getElementById("debug");
-
-  debug.innerHTML += "<br>" + msg;
-
-  debug.scrollTop = debug.scrollHeight;
 }
