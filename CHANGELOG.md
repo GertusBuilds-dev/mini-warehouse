@@ -1,3 +1,10 @@
+## v0.5.6-dev
+
+- backend connection indicator toegevoegd
+- scanner controleert of API bereikbaar is
+- visuele status indicator (connected / offline)
+- helpt debuggen bij gebruik van ngrok of externe backend
+
 ## v0.5.5-dev
 
 - DEBUG configuratie toegevoegd

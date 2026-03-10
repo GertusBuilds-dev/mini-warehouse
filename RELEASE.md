@@ -1,11 +1,13 @@
 Mini Warehouse Scanner
-Build v0.5.5-dev
+Build v0.5.6-dev
 
 New
 
-- scanner instellingen via config.js
+- backend status indicator toegevoegd
 
 Changes
 
-- debug logging kan aan/uit gezet worden
-- scan cooldown configureerbaar
+- scanner controleert automatisch of de API bereikbaar is
+
+Notes
+Helps testing connectivity when using ngrok or external backend servers.
