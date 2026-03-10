@@ -47,8 +47,8 @@ function saveScan() {
   warehouse.transactions.push(transaction);
 
   console.log("Transactions:", warehouse.transactions);
-
-  alert("Transaction saved");
+  log("Saved scan: " + lastScan);
+  //   alert("Transaction saved");
 
   currentProduct = null;
   currentLocation = null;
@@ -66,4 +66,12 @@ function handleScan(code) {
     currentLocation = code;
     alert("Location scanned: " + code);
   }
+}
+
+function log(msg) {
+  const debug = document.getElementById("debug");
+
+  debug.innerHTML += "<br>" + msg;
+
+  debug.scrollTop = debug.scrollHeight;
 }
