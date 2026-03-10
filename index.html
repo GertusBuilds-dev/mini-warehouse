@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Mini Warehouse Scanner</title>
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+
+      video {
+        width: 100%;
+        max-width: 400px;
+        border: 2px solid black;
+      }
+
+      button {
+        padding: 10px;
+        margin-top: 10px;
+        font-size: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Warehouse Scanner</h2>
+
+    <p>Last Scan:</p>
+    <h3 id="result">none</h3>
+
+    <video id="video"></video>
+
+    <br />
+
+    <button onclick="startScan()">Start Scan</button>
+    <button onclick="saveScan()">Save</button>
+
+    <script src="app.js"></script>
+  </body>
+</html>
