@@ -38,6 +38,20 @@
 
       <button onclick="startScan()">Start Scan</button>
       <button onclick="saveScan()">Save</button>
+      <button onclick="toggleScanner()">Pause Scanner</button>
+
+      <br /><br />
+
+      <label>Scan Mode:</label>
+
+      <select id="scanMode">
+        <option value="auto">Auto</option>
+        <option value="manual">Manual</option>
+      </select>
+
+      <br /><br />
+
+      <button onclick="confirmScan()">Confirm Scan</button>
     </div>
 
     <div id="debug">Debug console</div>

@@ -12,6 +12,9 @@ let currentLocation = null;
 let scannerActive = true;
 let scanCooldown = 1500;
 
+let paused = false;
+let pendingScan = null;
+
 function log(msg) {
   const debug = document.getElementById("debug");
 
@@ -28,7 +31,7 @@ function startScan() {
   log("Scanner started");
 
   codeReader.decodeFromVideoDevice(null, video, (result, err) => {
-    if (result && scannerActive) {
+    if (result && scannerActive && !paused) {
       scannerActive = false;
 
       const scanBox = document.querySelector(".scan-box");
@@ -36,9 +39,16 @@ function startScan() {
 
       lastScan = result.text;
 
-      log("SCAN: " + lastScan);
+      const mode = document.getElementById("scanMode").value;
 
-      handleScan(lastScan);
+      log("SCAN DETECTED: " + lastScan);
+
+      if (mode === "manual") {
+        pendingScan = lastScan;
+        log("Waiting for confirmation");
+      } else {
+        handleScan(lastScan);
+      }
 
       setTimeout(() => {
         scannerActive = true;
@@ -50,16 +60,41 @@ function startScan() {
   });
 }
 
+function confirmScan() {
+  if (!pendingScan) {
+    log("No scan to confirm");
+    return;
+  }
+
+  log("Confirmed scan: " + pendingScan);
+
+  handleScan(pendingScan);
+
+  pendingScan = null;
+}
+
+function toggleScanner() {
+  paused = !paused;
+
+  if (paused) {
+    log("Scanner paused");
+
+    document.querySelector(".scan-box").style.borderColor = "orange";
+  } else {
+    log("Scanner resumed");
+
+    document.querySelector(".scan-box").style.borderColor = "lime";
+  }
+}
+
 function handleScan(code) {
   document.getElementById("result").innerText = code;
 
   if (code.startsWith("PRD")) {
     currentProduct = code;
-
     log("PRODUCT: " + code);
   } else if (code.startsWith("LOC")) {
     currentLocation = code;
-
     log("LOCATION: " + code);
   }
 }

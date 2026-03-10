@@ -1,3 +1,10 @@
+## v0.4.4-dev
+
+- pause / resume scanner button toegevoegd
+- auto scan en manual scan mode
+- confirm scan knop voor manual mode
+- scanner UX verbeterd voor dicht op elkaar staande barcodes
+
 ## v0.4.3-dev
 
 - scanner cooldown toegevoegd
