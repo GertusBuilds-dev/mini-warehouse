@@ -1,16 +1,14 @@
-let APP_VERSION = "v0.4.8-dev"
+let APP_VERSION = "";
 
-fetch("VERSION.md")
-.then(r=>r.text())
-.then(v=>{
+fetch("../VERSION.md")
+  .then((r) => r.text())
+  .then((v) => {
+    APP_VERSION = v.trim();
 
-APP_VERSION = v.trim()
+    document.getElementById("version").innerText = APP_VERSION;
 
-document.getElementById("version").innerText = APP_VERSION
+    const script = document.createElement("script");
+    script.src = "app.js?v=" + APP_VERSION;
 
-const script = document.createElement("script")
-script.src = "app.js?v=" + APP_VERSION
-
-document.body.appendChild(script)
-
-})
+    document.body.appendChild(script);
+  });
